@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HebCaps - כתוביות בעברית</title>
+<meta name="description" content="תוסף חינמי לכתוביות בעברית בפרמייר ובדה וינצ'י ריזולב. התמלול רץ על המחשב שלכם.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;700&family=Karantina:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+	--bg: #e9ecef;
+	--panel: #f6f7f9;
+	--ink: #17202b;
+	--ink-2: #4a5563;
+	--line: #cdd3da;
+	--caption: #e8a13a;
+	--caption-ink: #3a2408;
+	--playhead: #2f7cf6;
+	--clip: #8fa3b8;
+	--clip-2: #a9b9ca;
+	--ok: #1f8a5b;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--bg: #1a2029; --panel: #222a35; --ink: #e8edf3; --ink-2: #a5b0bd; --line: #364252;
+		--caption: #e8a13a; --caption-ink: #2a1904; --playhead: #5a98ff; --clip: #4d6075; --clip-2: #5d7186; --ok: #4cc38a;
+	}
+}
+:root[data-theme="dark"] {
+	--bg: #1a2029; --panel: #222a35; --ink: #e8edf3; --ink-2: #a5b0bd; --line: #364252;
+	--caption: #e8a13a; --caption-ink: #2a1904; --playhead: #5a98ff; --clip: #4d6075; --clip-2: #5d7186; --ok: #4cc38a;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body {
+	margin: 0; background: var(--bg); color: var(--ink);
+	font: 17px/1.65 "IBM Plex Sans Hebrew", system-ui, sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--playhead); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+
+/* ---------- hero: a timeline whose caption is the headline ---------- */
+.hero { padding: 56px 0 40px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; color: var(--ink-2); margin-bottom: 36px; }
+.brand b {
+	display: grid; place-items: center; width: 28px; height: 28px; border-radius: 6px;
+	background: var(--caption); color: var(--caption-ink); font-size: 16px;
+}
+.timeline { position: relative; user-select: none; --cut: 31%; }
+.ruler {
+	height: 22px; border-bottom: 1px solid var(--line);
+	background: repeating-linear-gradient(to left, var(--line) 0 1px, transparent 1px 40px) bottom / 100% 8px no-repeat;
+}
+.track { position: relative; height: 34px; margin-top: 6px; }
+.track.cap { height: auto; }
+.clip { position: absolute; top: 0; bottom: 0; border-radius: 3px; background: var(--clip); }
+.clip.alt { background: var(--clip-2); }
+.headline {
+	/* the caption block's left edge sits exactly on the cut line at 31% */
+	position: relative; margin: 0 0 0 var(--cut);
+	background: var(--caption); color: var(--caption-ink); border-radius: 3px;
+	padding: 12px 18px 4px;
+	font: 700 clamp(56px, 11vw, 112px)/0.92 "Karantina", "IBM Plex Sans Hebrew", sans-serif;
+	letter-spacing: 0.005em;
+}
+.cutline { position: absolute; top: 22px; bottom: -6px; width: 2px; background: var(--playhead); }
+.cutline::before {
+	content: ""; position: absolute; top: -10px; right: -6px; width: 14px; height: 12px;
+	background: var(--playhead); clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+@media (prefers-reduced-motion: no-preference) {
+	.headline { animation: snap 0.7s cubic-bezier(.2,.9,.25,1.25) 0.15s both; }
+	@keyframes snap { from { transform: translateX(-38px); } to { transform: none; } }
+}
+.lede { max-width: 34em; margin: 28px 0 0; font-size: 19px; color: var(--ink-2); }
+
+/* ---------- download ---------- */
+.get { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
+.btn {
+	display: inline-flex; align-items: center; gap: 12px; text-decoration: none;
+	background: var(--ink); color: var(--bg); padding: 15px 26px; border-radius: 8px;
+	font-weight: 700; font-size: 18px; border: 0; cursor: pointer;
+}
+.btn:hover { background: var(--playhead); color: #fff; }
+.btn small { font-weight: 400; opacity: .75; font-size: 14px; }
+.other { font-size: 15px; color: var(--ink-2); }
+.other a { font-weight: 500; }
+.meta { width: 100%; font-size: 14px; color: var(--ink-2); margin: 0; }
+
+/* ---------- sections ---------- */
+section { padding: 36px 0; border-top: 1px solid var(--line); }
+h2 { font-size: 24px; line-height: 1.3; margin: 0 0 18px; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px 40px; }
+.host h3 { margin: 0 0 4px; font-size: 18px; }
+.host p { margin: 0; color: var(--ink-2); font-size: 16px; }
+.soon { display: inline-block; font-size: 13px; font-weight: 500; color: var(--caption-ink); background: var(--caption); border-radius: 3px; padding: 0 7px; margin-inline-start: 6px; vertical-align: 2px; }
+
+ol.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 18px; }
+ol.steps li { counter-increment: s; position: relative; padding-inline-start: 46px; }
+ol.steps li::before {
+	content: counter(s); position: absolute; right: 0; top: 1px; width: 30px; height: 30px; border-radius: 50%;
+	border: 2px solid var(--ink); display: grid; place-items: center; font-weight: 700; font-size: 15px;
+}
+ol.steps b { display: block; }
+ol.steps span { color: var(--ink-2); font-size: 16px; }
+kbd {
+	font: 500 14px "IBM Plex Sans Hebrew", sans-serif; background: var(--panel); border: 1px solid var(--line);
+	border-bottom-width: 2px; border-radius: 4px; padding: 0 6px; white-space: nowrap; direction: ltr; unicode-bidi: isolate;
+}
+
+ul.does { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+ul.does li { padding-inline-start: 22px; position: relative; }
+ul.does li::before { content: ""; position: absolute; right: 0; top: .62em; width: 10px; height: 10px; border-radius: 2px; background: var(--caption); }
+
+.req { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 8px 24px; }
+.req dt { font-weight: 700; }
+.req dd { margin: 0; color: var(--ink-2); }
+
+.help p { margin: 0 0 10px; max-width: 40em; }
+code { direction: ltr; unicode-bidi: isolate; font-size: 15px; background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; }
+footer { padding: 28px 0 48px; color: var(--ink-2); font-size: 14px; border-top: 1px solid var(--line); }
+
+@media (max-width: 600px) {
+	.hero { padding-top: 32px; }
+	.timeline { --cut: 12%; }
+	.req { grid-template-columns: 1fr; gap: 2px; }
+	.req dd { margin-bottom: 10px; }
+	.btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+<header class="hero">
+	<div class="wrap">
+		<div class="brand"><b>כ</b>HebCaps</div>
+
+		<div class="timeline" aria-hidden="false">
+			<div class="ruler"></div>
+			<div class="track cap">
+				<h1 class="headline">כתוביות בעברית, בדיוק על הקאט</h1>
+			</div>
+			<div class="track" aria-hidden="true">
+				<div class="clip" style="right:0; width:42%"></div>
+				<div class="clip alt" style="right:42.4%; left:calc(var(--cut) + .2%)"></div>
+				<div class="clip" style="left:0; width:calc(var(--cut) - .2%)"></div>
+			</div>
+			<div class="cutline" style="left:calc(var(--cut) - 1px)" aria-hidden="true"></div>
+		</div>
+
+		<p class="lede">תוסף חינמי לפרמייר ולדה וינצ'י ריזולב. התמלול רץ על המחשב שלכם, הכתוביות נחתכות לפי משמעות ופיסוק, ונופלות בדיוק על הקאטים של העריכה.</p>
+
+		<div class="get">
+			<a class="btn" id="primary" href="https://github.com/yoelkn/hebcaps-releases/releases/latest">
+				<span id="primaryLabel">הורדה</span><small id="primarySize"></small>
+			</a>
+			<span class="other" id="other">
+				<a href="https://github.com/yoelkn/hebcaps-releases/releases/latest">כל הקבצים</a>
+			</span>
+			<p class="meta" id="meta" aria-live="polite"></p>
+		</div>
+	</div>
+</header>
+
+<main class="wrap">
+	<section aria-labelledby="h-hosts">
+		<h2 id="h-hosts">עובד עם</h2>
+		<div class="cols">
+			<div class="host">
+				<h3>Adobe Premiere Pro</h3>
+				<p>גרסה 2022 ומעלה, ב-Windows ובמק. נפתח מ-<kbd>Window &gt; Extensions &gt; HebCaps</kbd>.</p>
+			</div>
+			<div class="host">
+				<h3>DaVinci Resolve Studio<span class="soon" id="resolveSoon">בקרוב</span></h3>
+				<p id="resolveText">גרסה 20 ומעלה, ב-Windows ובמק. הגרסה לריזולב בבדיקות ותצטרף לאותו קובץ התקנה.</p>
+			</div>
+		</div>
+	</section>
+
+	<section aria-labelledby="h-steps">
+		<h2 id="h-steps">התקנה</h2>
+		<ol class="steps">
+			<li><b>מורידים את הקובץ למחשב שלכם</b><span>הכפתור למעלה בוחר אוטומטית בין Windows למק.</span></li>
+			<li><b>מריצים את ההתקנה</b><span>ב-Windows תופיע אזהרה כחולה של SmartScreen כי הקובץ לא חתום בתעודה מסחרית: לוחצים <kbd>מידע נוסף</kbd> ואז <kbd>הפעל בכל זאת</kbd>. במק פותחים את קובץ ה-zip ועוקבים אחרי ההוראות שבתוכו.</span></li>
+			<li><b>פותחים את הפאנל בתוכנת העריכה</b><span>בפרמייר: <kbd>Window &gt; Extensions &gt; HebCaps</kbd>.</span></li>
+			<li><b>מחכים להתקנה הראשונה</b><span>בפעם הראשונה הפאנל בודק את כרטיס המסך ומוריד את מודל התמלול שמתאים למחשב. זה כמה GB, אז לוקח 10 עד 20 דקות. מכאן והלאה זה מיידי.</span></li>
+		</ol>
+	</section>
+
+	<section aria-labelledby="h-does">
+		<h2 id="h-does">מה הוא עושה</h2>
+		<ul class="does">
+			<li>מתמלל עברית עם מודל של ivrit.ai, בלי ענן ובלי מגבלת דקות.</li>
+			<li>שובר כתוביות במקומות טבעיים: סוף משפט, פסיק והפסקה בדיבור, ולא באמצע ביטוי.</li>
+			<li>מזהה את הקאטים בטיימליין: כתובית לא חוצה רווח באודיו, ומתחילה ונגמרת בדיוק על הקאט.</li>
+			<li>מתזמן כל מילה לפי הקול עצמו, ברזולוציה של 20 מילישניות.</li>
+			<li>פיסוק מלא, בלי פיסוק בסוף כתובית, או בלי פיסוק בכלל.</li>
+			<li>מתעדכן לבד: כשיוצאת גרסה חדשה מופיע בפאנל כפתור עדכון.</li>
+		</ul>
+	</section>
+
+	<section aria-labelledby="h-req">
+		<h2 id="h-req">מה צריך במחשב</h2>
+		<dl class="req">
+			<dt>מערכת</dt><dd>Windows 10 או 11, או macOS</dd>
+			<dt>כרטיס מסך</dt><dd>NVIDIA מומלץ (מהיר פי כמה). בלי NVIDIA זה עובד על המעבד, לאט יותר.</dd>
+			<dt>מקום בדיסק</dt><dd>כ-5GB פנויים למודלים</dd>
+			<dt>אינטרנט</dt><dd>רק בהתקנה הראשונה ובעדכונים. התמלול עצמו לא שולח כלום החוצה.</dd>
+		</dl>
+	</section>
+
+	<section class="help" aria-labelledby="h-help">
+		<h2 id="h-help">משהו לא עובד?</h2>
+		<p>בפאנל יש כפתור <kbd>📄</kbd> שפותח את תיקיית הלוגים. שלחו לי את התיקייה כמו שהיא, עם משפט על מה ניסיתם לעשות.</p>
+		<p>במק הלוגים נמצאים ב-<code>~/Library/Logs/HebCaps</code>.</p>
+	</section>
+</main>
+
+<footer>
+	<div class="wrap">
+		HebCaps חינמי. התמלול מבוסס על מודלים של <a href="https://huggingface.co/ivrit-ai">ivrit.ai</a>.
+	</div>
+</footer>
+
+<script>
+(function () {
+	"use strict";
+	var REPO = "yoelkn/hebcaps-releases";
+	var ALL = "https://github.com/" + REPO + "/releases/latest";
+	var RESOLVE_READY = false; // flip when the installer includes the Resolve plugin
+
+	function os() {
+		var p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "";
+		var ua = navigator.userAgent || "";
+		if (/android|iphone|ipad|ipod/i.test(ua)) return "mobile";
+		if (/mac/i.test(p) || /Macintosh/.test(ua)) return "mac";
+		if (/win/i.test(p) || /Windows/.test(ua)) return "win";
+		return "other";
+	}
+	var NAMES = { win: "Windows", mac: "Mac" };
+	var PATTERN = { win: /^HebCaps-Setup-[\d.]+\.exe$/, mac: /^HebCaps-mac-[\d.]+\.zip$/ };
+
+	function mb(bytes) { return bytes < 1048576 ? Math.max(1, Math.round(bytes / 1024)) + " KB" : (bytes / 1048576).toFixed(1) + " MB"; }
+	function heDate(iso) {
+		try { return new Date(iso).toLocaleDateString("he-IL", { day: "numeric", month: "long", year: "numeric" }); }
+		catch (e) { return ""; }
+	}
+
+	var me = os();
+	var primary = document.getElementById("primary");
+	var label = document.getElementById("primaryLabel");
+	var size = document.getElementById("primarySize");
+	var other = document.getElementById("other");
+	var meta = document.getElementById("meta");
+
+	if (RESOLVE_READY) {
+		document.getElementById("resolveSoon").hidden = true;
+		document.getElementById("resolveText").textContent = "גרסה 20 ומעלה, ב-Windows ובמק. נפתח מ-Workspace > Workflow Integrations > HebCaps.";
+	}
+
+	var target = me === "mac" ? "mac" : "win";
+	var mobile = me === "mobile";
+	label.textContent = mobile ? "שליחת הקישור למחשב" : "הורדה ל-" + NAMES[target];
+
+	if (mobile) {
+		// the installer runs on a computer: on a phone, hand the page link over instead
+		primary.addEventListener("click", function (e) {
+			e.preventDefault();
+			var url = location.href.split("#")[0];
+			if (navigator.share) {
+				navigator.share({ title: "HebCaps", url: url }).catch(function () { });
+			} else if (navigator.clipboard) {
+				navigator.clipboard.writeText(url).then(function () { label.textContent = "הקישור הועתק"; });
+			}
+		});
+		meta.textContent = "ההתקנה נעשית במחשב עם פרמייר או ריזולב.";
+	}
+
+	function link(asset, text) {
+		var a = document.createElement("a");
+		a.href = asset.browser_download_url;
+		a.textContent = text;
+		return a;
+	}
+
+	function render(assets, rel) {
+		// ‏ (RLM) keeps "1.1.1," from flipping around the comma in RTL text
+		var version = "גרסה " + String(rel.tag_name || "").replace(/^v/, "") + "‏" +
+			(rel.published_at ? ", פורסמה ב-" + heDate(rel.published_at) : "");
+		other.innerHTML = "";
+		if (mobile) {
+			["win", "mac"].forEach(function (k) {
+				if (!assets[k]) return;
+				if (other.childNodes.length) other.appendChild(document.createTextNode(" או "));
+				other.appendChild(link(assets[k], "הורדה ל-" + NAMES[k]));
+			});
+			meta.textContent = "ההתקנה נעשית במחשב עם פרמייר או ריזולב. " + version;
+			return;
+		}
+		var mine = assets[target];
+		var alt = assets[target === "win" ? "mac" : "win"];
+		if (mine) {
+			primary.href = mine.browser_download_url;
+			size.textContent = mb(mine.size);
+		}
+		if (alt) other.appendChild(link(alt, "או הורדה ל-" + NAMES[target === "win" ? "mac" : "win"]));
+		meta.textContent = version;
+	}
+
+	fetch("https://api.github.com/repos/" + REPO + "/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
+		.then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+		.then(function (rel) {
+			var found = {};
+			(rel.assets || []).forEach(function (as) {
+				for (var k in PATTERN) if (PATTERN[k].test(as.name)) found[k] = as;
+			});
+			if (!found.win && !found.mac) throw new Error("no assets");
+			render(found, rel);
+		})
+		.catch(function () {
+			// API unreachable or rate-limited: the button still leads to the release page
+			primary.href = ALL;
+			meta.textContent = "";
+		});
+})();
+</script>
+</body>
+</html>
