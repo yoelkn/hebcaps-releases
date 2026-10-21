@@ -98,7 +98,6 @@ h2 { font-size: 24px; line-height: 1.3; margin: 0 0 18px; }
 .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px 40px; }
 .host h3 { margin: 0 0 4px; font-size: 18px; }
 .host p { margin: 0; color: var(--ink-2); font-size: 16px; }
-.soon { display: inline-block; font-size: 13px; font-weight: 500; color: var(--caption-ink); background: var(--caption); border-radius: 3px; padding: 0 7px; margin-inline-start: 6px; vertical-align: 2px; }
 
 ol.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 18px; }
 ol.steps li { counter-increment: s; position: relative; padding-inline-start: 46px; }
@@ -175,8 +174,8 @@ footer { padding: 28px 0 48px; color: var(--ink-2); font-size: 14px; border-top:
 				<p>גרסה 2022 ומעלה, ב-Windows ובמק. נפתח מ-<kbd>Window &gt; Extensions &gt; HebCaps</kbd>.</p>
 			</div>
 			<div class="host">
-				<h3>DaVinci Resolve Studio<span class="soon" id="resolveSoon">בקרוב</span></h3>
-				<p id="resolveText">גרסה 20 ומעלה, ב-Windows ובמק. הגרסה לריזולב בבדיקות ותצטרף לאותו קובץ התקנה.</p>
+				<h3>DaVinci Resolve Studio</h3>
+				<p>גרסה 20 ומעלה, ב-Windows ובמק. נפתח בחלון נפרד מ-<kbd>Workspace &gt; Workflow Integrations &gt; HebCaps</kbd>.</p>
 			</div>
 		</div>
 	</section>
@@ -186,7 +185,7 @@ footer { padding: 28px 0 48px; color: var(--ink-2); font-size: 14px; border-top:
 		<ol class="steps">
 			<li><b>מורידים את הקובץ למחשב שלכם</b><span>הכפתור למעלה בוחר אוטומטית בין Windows למק.</span></li>
 			<li><b>מריצים את ההתקנה</b><span>ב-Windows תופיע אזהרה כחולה של SmartScreen כי הקובץ לא חתום בתעודה מסחרית: לוחצים <kbd>מידע נוסף</kbd> ואז <kbd>הפעל בכל זאת</kbd>. במק פותחים את קובץ ה-zip ועוקבים אחרי ההוראות שבתוכו.</span></li>
-			<li><b>פותחים את הפאנל בתוכנת העריכה</b><span>בפרמייר: <kbd>Window &gt; Extensions &gt; HebCaps</kbd>.</span></li>
+			<li><b>פותחים את הפאנל בתוכנת העריכה</b><span>בפרמייר: <kbd>Window &gt; Extensions &gt; HebCaps</kbd>. בריזולב: <kbd>Workspace &gt; Workflow Integrations &gt; HebCaps</kbd>. אותו קובץ התקנה מתקין את שניהם.</span></li>
 			<li><b>מחכים להתקנה הראשונה</b><span>בפעם הראשונה הפאנל בודק את כרטיס המסך ומוריד את מודל התמלול שמתאים למחשב. זה כמה GB, אז לוקח 10 עד 20 דקות. מכאן והלאה זה מיידי.</span></li>
 		</ol>
 	</section>
@@ -231,8 +230,6 @@ footer { padding: 28px 0 48px; color: var(--ink-2); font-size: 14px; border-top:
 	"use strict";
 	var REPO = "yoelkn/hebcaps-releases";
 	var ALL = "https://github.com/" + REPO + "/releases/latest";
-	var RESOLVE_READY = false; // flip when the installer includes the Resolve plugin
-
 	function os() {
 		var p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "";
 		var ua = navigator.userAgent || "";
@@ -256,11 +253,6 @@ footer { padding: 28px 0 48px; color: var(--ink-2); font-size: 14px; border-top:
 	var size = document.getElementById("primarySize");
 	var other = document.getElementById("other");
 	var meta = document.getElementById("meta");
-
-	if (RESOLVE_READY) {
-		document.getElementById("resolveSoon").hidden = true;
-		document.getElementById("resolveText").textContent = "גרסה 20 ומעלה, ב-Windows ובמק. נפתח מ-Workspace > Workflow Integrations > HebCaps.";
-	}
 
 	var target = me === "mac" ? "mac" : "win";
 	var mobile = me === "mobile";
