@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HebCaps - כתוביות בעברית</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='64' height='64' rx='14' fill='%231f2731'/%3E%3Crect x='25' y='18' width='31' height='17' rx='4' fill='%23e8a13a'/%3E%3Crect x='25' y='40' width='31' height='8' rx='3' fill='%234d6075'/%3E%3Crect x='8' y='40' width='13' height='8' rx='3' fill='%234d6075'/%3E%3Crect x='18.5' y='12' width='3' height='42' rx='1.5' fill='%235a98ff'/%3E%3Cpath d='M14 9h12l-6 7z' fill='%235a98ff'/%3E%3C/svg%3E">
 <meta name="description" content="תוסף חינמי לכתוביות בעברית בפרמייר ובדה וינצ'י ריזולב. התמלול רץ על המחשב שלכם.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,10 +48,7 @@ a { color: inherit; }
 /* ---------- hero: a timeline whose caption is the headline ---------- */
 .hero { padding: 56px 0 40px; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; color: var(--ink-2); margin-bottom: 36px; }
-.brand b {
-	display: grid; place-items: center; width: 28px; height: 28px; border-radius: 6px;
-	background: var(--caption); color: var(--caption-ink); font-size: 16px;
-}
+.brand .mark { flex: none; display: block; }
 .timeline { position: relative; user-select: none; --cut: 31%; }
 .ruler {
 	height: 22px; border-bottom: 1px solid var(--line);
@@ -136,7 +134,7 @@ footer { padding: 28px 0 48px; color: var(--ink-2); font-size: 14px; border-top:
 <body>
 <header class="hero">
 	<div class="wrap">
-		<div class="brand"><b>כ</b>HebCaps</div>
+		<div class="brand"><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-label="HebCaps"><rect width="64" height="64" rx="14" fill="#1f2731"/><rect x="25" y="18" width="31" height="17" rx="4" fill="#e8a13a"/><rect x="25" y="40" width="31" height="8" rx="3" fill="#4d6075"/><rect x="8" y="40" width="13" height="8" rx="3" fill="#4d6075"/><rect x="18.5" y="12" width="3" height="42" rx="1.5" fill="#5a98ff"/><path d="M14 9h12l-6 7z" fill="#5a98ff"/></svg>HebCaps</div>
 
 		<div class="timeline" aria-hidden="false">
 			<div class="ruler"></div>
