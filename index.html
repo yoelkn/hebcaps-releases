@@ -89,6 +89,9 @@ a { color: inherit; }
 .other { font-size: 15px; color: var(--ink-2); }
 .other a { font-weight: 500; }
 .meta { width: 100%; font-size: 14px; color: var(--ink-2); margin: 0; }
+.demo { margin: 36px 0 0; }
+.demo img { display: block; width: 100%; max-width: 800px; height: auto; aspect-ratio: 16 / 9; border-radius: 10px; border: 1px solid var(--line); box-shadow: 0 14px 40px rgba(0,0,0,.18); }
+.demo figcaption { margin-top: 10px; font-size: 14px; color: var(--ink-2); }
 
 /* ---------- sections ---------- */
 section { padding: 36px 0; border-top: 1px solid var(--line); }
@@ -160,6 +163,11 @@ footer { padding: 28px 0 48px; color: var(--ink-2); font-size: 14px; border-top:
 			</span>
 			<p class="meta" id="meta" aria-live="polite"></p>
 		</div>
+
+		<figure class="demo">
+			<img src="demo.gif" width="800" height="450" alt="הדגמה: לוחצים 'צור כתוביות' בפאנל של HebCaps בפרמייר, הכתוביות מתומללות, נכנסות לטרק כתוביות בטיימליין ומופיעות על התמונה בזמן הדיבור">
+			<figcaption>לחיצה אחת: תמלול, חלוקה לכתוביות, ומשם ישר לטיימליין.</figcaption>
+		</figure>
 	</div>
 </header>
 
@@ -195,7 +203,7 @@ footer { padding: 28px 0 48px; color: var(--ink-2); font-size: 14px; border-top:
 			<li>שובר כתוביות במקומות טבעיים: סוף משפט, פסיק והפסקה בדיבור, ולא באמצע ביטוי.</li>
 			<li>מזהה את הקאטים בטיימליין: כתובית לא חוצה רווח באודיו, ומתחילה ונגמרת בדיוק על הקאט.</li>
 			<li>מתזמן כל מילה לפי הקול עצמו, ברזולוציה של 20 מילישניות.</li>
-			<li>פיסוק מלא, בלי פיסוק בסוף כתובית, או בלי פיסוק בכלל.</li>
+			<li>פיסוק מלא, רק סימני שאלה וקריאה, בלי פיסוק בסוף כתובית, או בלי פיסוק בכלל.</li>
 			<li>מתעדכן לבד: כשיוצאת גרסה חדשה מופיע בפאנל כפתור עדכון.</li>
 		</ul>
 	</section>
@@ -212,7 +220,7 @@ footer { padding: 28px 0 48px; color: var(--ink-2); font-size: 14px; border-top:
 
 	<section class="help" aria-labelledby="h-help">
 		<h2 id="h-help">משהו לא עובד?</h2>
-		<p>בפאנל יש כפתור <kbd>📄</kbd> שפותח את תיקיית הלוגים. שלחו לי את התיקייה כמו שהיא, עם משפט על מה ניסיתם לעשות.</p>
+		<p>בפינה העליונה של הפאנל, מתחת ל"מנוע מוכן", יש כפתור <kbd>LOGS</kbd> שפותח את תיקיית הלוגים. שלחו לי את התיקייה כמו שהיא, עם משפט על מה ניסיתם לעשות.</p>
 		<p>במק הלוגים נמצאים ב-<code>~/Library/Logs/HebCaps</code>.</p>
 	</section>
 </main>
